@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     [SerializeField]
     private float horizontalInput;
+    [SerializeField]
+    private float verticalInput;
     // Start is called before the first frame update
     void Start()
     {
@@ -22,9 +24,11 @@ public class PlayerController : MonoBehaviour
     void Update()
     {
         horizontalInput = Input.GetAxis("Horizontal");
-        float verticalInput = Input.GetAxis("Vertical");
+        verticalInput = Input.GetAxis("Vertical");
+
         transform.Translate(Vector3.right * turnSpeed * horizontalInput * Time.deltaTime);
         transform.Translate(Vector3.forward * Time.deltaTime * vehicleSpeed * verticalInput);
+
         transform.Rotate(Vector3.up, turnSpeed * Time.deltaTime * horizontalInput);    
     }
 }
